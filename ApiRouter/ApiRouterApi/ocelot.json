@@ -1,0 +1,173 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/auth/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5000
+        }
+      ],
+      "UpstreamPathTemplate": "/auth/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5006
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44306
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/{everything}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/users/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 44306
+        }
+      ],
+      "UpstreamPathTemplate": "/api/users/{everything}",
+      "UpstreamHttpMethod": [ "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/games/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 64500
+        }
+      ],
+      "UpstreamPathTemplate": "/games/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "T-test": "123"
+      },
+      "ClaimsToHeaders": {
+        "X-User-Id": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/games",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 64500 }
+      ],
+      "UpstreamPathTemplate": "/games",
+      "UpstreamHttpMethod": [ "GET", "POST" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "T-test": "123"
+      },
+      "ClaimsToHeaders": {
+        "X-User-Id": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier"
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/authors/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 64500 }
+      ],
+      "UpstreamPathTemplate": "/authors/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/authors",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 64500 }
+      ],
+      "UpstreamPathTemplate": "/authors",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/games/author/{authorId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 64500 }
+      ],
+      "UpstreamPathTemplate": "/games/author/{authorId}",
+      "UpstreamHttpMethod": [ "GET" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/gamefile/{gameId}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 64500 }
+      ],
+      "UpstreamPathTemplate": "/gamefile/{gameId}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/forums/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5073 }
+      ],
+      "UpstreamPathTemplate": "/api/forums/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/forums",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 5073 }
+      ],
+      "UpstreamPathTemplate": "/api/forums",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/filter/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 64500 }
+      ],
+      "UpstreamPathTemplate": "/filter/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/filter",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        { "Host": "localhost", "Port": 64500 }
+      ],
+      "UpstreamPathTemplate": "/filter",
+      "UpstreamHttpMethod": [ "GET", "POST" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:60197",
+    "AcceptAnyServerCertificate": true
+  }
+} 
